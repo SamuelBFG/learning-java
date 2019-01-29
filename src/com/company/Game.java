@@ -17,14 +17,7 @@ public class Game {
         return lines;
     }
 
-    public void underScore() throws Exception {
-
-        int rnd = new Random().nextInt(lineCounter());
-        System.out.println(rnd);
-
-    }
-
-    public void randomMovie() throws Exception {
+    private static String randomMovie() throws Exception {
         Scanner scanner = new Scanner(file);
         int i = 0;
         String[] movies = new String[lineCounter()];
@@ -37,6 +30,15 @@ public class Game {
         int rnd = new Random().nextInt(lineCounter());
         System.out.println("The chosen movie was: ");
         System.out.println(movies[rnd]);
+        return movies[rnd];
+
+    }
+
+    public void underScore() throws Exception {
+
+        String underscoreMovie = "_".repeat(randomMovie().length());
+        System.out.println(underscoreMovie);
+
     }
 
 
