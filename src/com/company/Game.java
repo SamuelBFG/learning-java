@@ -23,7 +23,7 @@ public class Game {
         String[] movies = new String[lineCounter()];
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
-            System.out.println(line);
+            //System.out.println(line);
             movies[i] = line;
             i++;
         }
@@ -34,11 +34,64 @@ public class Game {
 
     }
 
-    public void underScore() throws Exception {
+    private static String underScore(String movie) throws Exception {
 
-        String underscoreMovie = "_".repeat(randomMovie().length());
-        System.out.println(underscoreMovie);
+        movie = "_".repeat(movie.length());
+        //System.out.println(underscoreMovie);
+        return movie;
 
+    }
+
+    private static boolean contains(char [] arr, char val){
+        boolean result = false;
+        for(int i : arr){
+            if(i == val){
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public void gameManager() throws Exception {
+        String selectedMovie = randomMovie(); //String movie
+        char[] movie = selectedMovie.toCharArray(); //Char movie
+        char[] movieUnderscored = underScore(selectedMovie).toCharArray(); //Chosen movie UNDERSCORED!
+        int guessing = 0;
+
+        System.out.print("You are guessing: ");
+        System.out.println(movieUnderscored);
+        System.out.println("You have guessed ("+guessing+") wrong letters:");
+
+        while(guessing != 10){
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Guess a letter:");
+            char guess = scanner.nextLine().charAt(0);
+            boolean flag = true; //Flag to check if the user guess right or wrong.
+            //System.out.println(guess);
+            for(int i = 0; i < movie.length; i++){
+                if(movie[i] == guess){
+                    movieUnderscored[i] = guess;
+                    flag = false;
+                }
+            }
+            if(flag){
+                guessing++;
+            }
+            if(!contains(movieUnderscored, '_')){
+                System.out.println("You win!");
+                System.out.print("You have guessed '");
+                System.out.print(movieUnderscored);
+                System.out.println("' correctly.");
+                break;
+            }
+            System.out.print("You are guessing: ");
+            System.out.println(movieUnderscored);
+            System.out.println("You have guessed ("+guessing+") wrong letters:");
+        }
+        if(guessing == 0){
+            System.out.println("Game Over! The movie was: ");
+            System.out.print(movie);
+        }
     }
 
 
