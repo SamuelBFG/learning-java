@@ -7,6 +7,7 @@ public class Game {
 
     static File file = new File ("movies.txt");
 
+    //Method used to count how many movies are in the .txt file.
     private static int lineCounter() throws Exception {
         int lines = 0;
         Scanner scanner = new Scanner(file);
@@ -17,6 +18,7 @@ public class Game {
         return lines;
     }
 
+    //Method used to select randomly a movie from the list.
     private static String randomMovie() throws Exception {
         Scanner scanner = new Scanner(file);
         int i = 0;
@@ -28,12 +30,13 @@ public class Game {
             i++;
         }
         int rnd = new Random().nextInt(lineCounter());
-        System.out.println("The chosen movie was: ");
+        //System.out.println("The chosen movie was: ");
         System.out.println(movies[rnd]);
         return movies[rnd];
 
     }
 
+    //Method used to switch every movie's char to underscore '_'.
     private static String underScore(String movie) throws Exception {
 
         movie = "_".repeat(movie.length());
@@ -42,6 +45,7 @@ public class Game {
 
     }
 
+    //Method to test if a specific char VAL can be found on arr.
     private static boolean contains(char [] arr, char val){
         boolean result = false;
         for(int i : arr){
@@ -52,6 +56,7 @@ public class Game {
         return result;
     }
 
+    //Method that interact with the user
     public void gameManager() throws Exception {
         String selectedMovie = randomMovie(); //String movie
         char[] movie = selectedMovie.toCharArray(); //Char movie
