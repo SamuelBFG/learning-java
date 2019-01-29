@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Random;
 import java.util.Scanner;
 import java.io.File;
 
@@ -17,15 +18,28 @@ public class Game {
     }
 
     public void underScore() throws Exception {
+
+        int rnd = new Random().nextInt(lineCounter());
+        System.out.println(rnd);
+
+    }
+
+    public void randomMovie() throws Exception {
         Scanner scanner = new Scanner(file);
+        int i = 0;
+        String[] movies = new String[lineCounter()];
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
             System.out.println(line);
+            movies[i] = line;
+            i++;
         }
-        System.out.println(lineCounter());
-
-
+        int rnd = new Random().nextInt(lineCounter());
+        System.out.println("The chosen movie was: ");
+        System.out.println(movies[rnd]);
     }
+
+
 
 
 }
