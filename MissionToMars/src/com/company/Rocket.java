@@ -7,14 +7,13 @@ public class Rocket implements SpaceShip{
     int maxRocketWeigth; // Max weight with cargo
     int cargoCarried;
     int rocketCurrentWeight;
+    int cargoLimit;
 
     double explosionRate;
     double crashingRate;
 
 
-
     public boolean launch(){
-
         return true;
     }
 
