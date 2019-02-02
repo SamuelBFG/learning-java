@@ -1,5 +1,4 @@
 package com.company;
-import java.util.Random;
 
 /**
   Rocket cost = $100 Million
