@@ -15,6 +15,7 @@ public class U1 extends Rocket{
         maxRocketWeigth = 18000; //In kilograms, with cargo
         explosionRate = 0.05; //Chance launch explosion;
         crashingRate = 0.01; //Chance landing crash;
+        cargoLimit = maxRocketWeigth - rocketWeight;
     }
 
     public boolean launch(){

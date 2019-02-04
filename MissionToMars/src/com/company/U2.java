@@ -15,6 +15,7 @@ public class U2 extends Rocket{
         maxRocketWeigth = 29000; //In kilograms
         explosionRate = 0.04;
         crashingRate = 0.08;
+        cargoLimit = maxRocketWeigth - rocketWeight;
     }
 
     public boolean launch(){
