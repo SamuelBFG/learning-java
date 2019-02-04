@@ -1,15 +1,14 @@
 package com.company;
 
 /**
-  Rocket cost = $100 Million
-  Rocket weight = 10 Tonnes
-  Max weight (with cargo) = 18 Tonnes
-  Chance of launch explosion = 5% * (cargo carried / cargo limit)
-  Chance of landing crash = 1% * (cargo carried / cargo limit)
+ Rocket cost = $100 Million
+ Rocket weight = 10 Tonnes
+ Max weight (with cargo) = 18 Tonnes
+ Chance of launch explosion = 5% * (cargo carried / cargo limit)
+ Chance of landing crash = 1% * (cargo carried / cargo limit)
  */
 
-public class U1 extends Rocket {
-
+public class U1 extends Rocket{
     U1(){
         rocketCost = 100; //In millions USD
         rocketWeight = 10000; //In kilograms
@@ -19,13 +18,11 @@ public class U1 extends Rocket {
     }
 
     public boolean launch(){
-        double probLaunch = Math.random();
-        return (this.explosionRate*(this.cargoCarried/this.cargoLimit) < probLaunch);
+        return (this.explosionRate*(this.cargoCarried/this.cargoLimit) < Math.random());
     }
 
     public boolean land(){
-        double probLand = Math.random();
-        return (this.crashingRate*(this.cargoCarried/this.cargoLimit) < probLand);
+        return (this.crashingRate*(this.cargoCarried/this.cargoLimit) < Math.random());
     }
 
 }
